@@ -1,14 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function (req, res, next) {
-    data = req.query;
+router.post('/', function (req, res, next) {
+    data = req.body;
     console.log(data);
     SMS.methods.getUser(data.uid)
-        .call({ from: coinbase }).then((val) => {
+        .call({ from: data.address }).then((val) => {
             console.log(val);
-           
-            // res.render("getStudent", {myData : val});
+
+            res.render("main", {val : val});
         })
 });
 

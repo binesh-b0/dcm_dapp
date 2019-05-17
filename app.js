@@ -8,18 +8,20 @@ var logger = require('morgan');
 var Web3 = require('web3');
 
 //import compiled output of auction contract from build directory
-var MyContractJSON  = require(path.join(__dirname, 'build/contracts/betting.json'));
+var MyContractJSON  = require(path.join(__dirname, 'build/contracts/copyright.json'));
 
 //Establish connection with local geth private chain
-web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545")); 
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
 // get contract address, from network id 5777 (here 5777 is the network id of geth private chain)
-contractAddress = MyContractJSON.networks['4002'].address; 
+contractAddress = MyContractJSON.networks['4002'].address;
 
 //print Contract Address
 console.log(contractAddress);
 
+const abi = MyContractJSON.abi;
 
+SMS = new web3.eth.Contract(abi, contractAddress);
 
 var indexRouter = require('./routes/index');
 var getUserRouter = require('./routes/getUser');
