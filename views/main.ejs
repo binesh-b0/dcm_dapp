@@ -12,5 +12,20 @@
     pbc:<%=val._publishedCount %><br>
     pr:<%=val._purchasedSongs%><br>
     pb:<%=val._publishedSongs %><br>
+    <br>
+    <form class="" action="/publish" method="post">
+      <input type="text" name="uid" placeholder="uid">
+      <input type="text" name="sid" placeholder="sid">
+      <input type="text" name="name" placeholder="name">
+      <input type="number" name="price" placeholder="price">
+      <input type="submit" name="submit" value="publish">
+    </form>
+    <form class="" action="/buyLicence" method="post">
+      <input type="text" name="uid" placeholder="uid">
+      <input type="text" name="sid" placeholder="sid">
+      <input type="text" name="name" placeholder="name">
+      <input type="number" name="price" placeholder="price">
+      <input type="submit" name="submit" value="publish">
+    </form>
   </body>
 </html>

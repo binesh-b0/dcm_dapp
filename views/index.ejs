@@ -19,6 +19,12 @@ padding:10px
 label {
 cursor:pointer
 }
+input{
+  width: 312px;
+  -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 #form-switch {
 display:none
 }
@@ -34,19 +40,21 @@ display:none
     </style>
   </head>
   <body>
+    <div align="center">
     <input type='checkbox' id='form-switch'>
     <form id='login-form' action="/getUser" method='post'>
       <input name="uid" type="text" placeholder="uid" required>
       <input name="address" type="text" placeholder="address" required>
       <input type='submit' value="login"/>
-      <label for='form-switch'><span>Register</span></label>
+      <label for='form-switch'><span>register</span></label>
     </form>
     <form id='register-form' action="/setUser" method='post'>
       <input name="name" type="text" placeholder="Username" required>
       <input name="uid" type="text" placeholder="uid" required>
       <input name="address" type="text" placeholder="address" required>
       <input type='submit' value="submit"></input>
-      <label for='form-switch'>Sign In</label>
+      <label for='form-switch'>sign i`n</label>
     </form>
+  </div>
   </body>
 </html>

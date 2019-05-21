@@ -7,7 +7,8 @@ router.post('/', function (req, res, next) {
     SMS.methods.getUser(data.uid)
         .call({ from: data.address }).then((val) => {
             console.log(val);
-
+            userAddress=data.address;
+            userId=val.uid;
             res.render("main", {val : val});
         })
 });

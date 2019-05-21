@@ -26,8 +26,12 @@ SMS = new web3.eth.Contract(abi, contractAddress);
 var indexRouter = require('./routes/index');
 var getUserRouter = require('./routes/getUser');
 var setUserRouter = require('./routes/setUser');
+var publishRouter = require('./routes/publish');
+var buyLicenceRouter = require('./routes/buyLicence');
 var app = express();
 
+userAddress;
+userId;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -41,6 +45,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/getUser',getUserRouter);
 app.use('/setUser', setUserRouter);
+app.use('/publish', publishRouter);
+app.use('/buyLicence', buyLicenceRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
