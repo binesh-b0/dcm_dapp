@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/buyLicence', function (req, res, next) {
+router.post('/', function (req, res, next) {
     data = req.body;
-    console.log(data);
-    SMS.methods.registerCopyright(data.sid,data.uid data.name,userAddress,"",data.price )
-        .send({ from: data.address, gas : 6000000 });
+    console.log(data,"df",userId,userAddress);
+    SMS.methods.buyLicence(userId,data.sid)
+        .send({ from: userAddress,value:data.amount, gas : 6000000 });
     res.send("license purchased !")
 });
 

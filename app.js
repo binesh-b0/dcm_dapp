@@ -27,11 +27,11 @@ var indexRouter = require('./routes/index');
 var getUserRouter = require('./routes/getUser');
 var setUserRouter = require('./routes/setUser');
 var publishRouter = require('./routes/publish');
-var buyLicenceRouter = require('./routes/buyLicence');
+var buyLicenseRouter = require('./routes/buyLicense');
 var app = express();
 
-userAddress;
-userId;
+userAddress="";
+userId="";
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -46,7 +46,7 @@ app.use('/', indexRouter);
 app.use('/getUser',getUserRouter);
 app.use('/setUser', setUserRouter);
 app.use('/publish', publishRouter);
-app.use('/buyLicence', buyLicenceRouter);
+app.use('/buyLicense', buyLicenseRouter);
 
 
 // catch 404 and forward to error handler

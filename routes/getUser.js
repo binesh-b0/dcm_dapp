@@ -8,7 +8,7 @@ router.post('/', function (req, res, next) {
         .call({ from: data.address }).then((val) => {
             console.log(val);
             userAddress=data.address;
-            userId=val.uid;
+            userId=data.uid;
             res.render("main", {val : val});
         })
 });
