@@ -13,17 +13,22 @@
     pr:<%=val._purchasedSongs%><br>
     pb:<%=val._publishedSongs %><br>
     <br>
-    <form class="" action="/publish" method="post">
+    <form action="/publish" method="Post" enctype="multipart/form-data">
       <input type="text" name="uid" placeholder="uid">
       <input type="text" name="sid" placeholder="sid">
       <input type="text" name="name" placeholder="name">
       <input type="number" name="price" placeholder="price">
-      <input type="submit" name="submit" value="publish">
+      <input type="file" name="song" />
+      <input type="submit" value="publish">
     </form>
     <form class="" action="/buyLicense" method="post">
       <input type="text" name="sid" placeholder="sid">
       <input type="number" name="amount" placeholder="amount">
       <input type="submit" name="submit" value="buy">
+    </form>
+    <form class="" action="/getSong" method="post">
+      <input type="text" name="sid" placeholder="sid">
+      <input type="submit" name="submit" value="download">
     </form>
 
   </body>

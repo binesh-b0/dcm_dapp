@@ -5,7 +5,7 @@ contract copyright{
         bool reg;
         string name;
         address payable owner;
-        string url;
+        string hash;
         uint price;
         uint[] licenseHoldersList;
         mapping(uint =>bool) licenseHolders;
@@ -40,23 +40,23 @@ contract copyright{
         _purchasedSongs= users[_id].purchasedSongs;
         _publishedSongs = users[_id].publishedSongs;
     }
-    function checkUserExists(uint _uid) public returns (bool) {
+    function checkUserExists(uint _uid) public view returns (bool) {
         return users[_uid].reg;
     }
-    function checkSongExists(uint _sid) public returns (bool) {
+    function checkSongExists(uint _sid) public view returns (bool) {
         return songs[_sid].reg;
     }
 
-    function registerCopyright(uint _id ,uint _uid, string memory _name,address payable _owner,string memory _url,uint _price) public {
+    function registerCopyright(uint _id ,uint _uid, string memory _name,address payable _owner,string memory _hash,uint _price) public {
         require(checkUserExists(_uid));
         songs[_id].id = _id;
         songs[_id].reg = true;
         songs[_id].name = _name;
         songs[_id].owner = _owner;
-        songs[_id].url=_url;
+        songs[_id].hash=_hash;
         songs[_id].price=_price;
         users[_uid].publishedSongs.push(_id);
-        users[_uid].publishedCount=users[_id].publishedSongs.length;
+        users[_uid].publishedCount=users[_uid].publishedSongs.length;
     }
     function buyLicence(uint buyerid,uint songid) public payable{
         // users[buyerid].addr.send(msg.value);
@@ -73,13 +73,20 @@ contract copyright{
         return songs[_sid].licenseHolders[_uid];
     }
 
-    function getSong(uint _sid) public view returns(uint _id,string memory _name,address payable _owner,string memory _url,uint _price,uint[] memory _licenseHolderes){
+    function songInfo(uint _sid) public view returns(uint _id,string memory _name,address payable _owner,string memory _hash,uint _price,uint[] memory _licenseHolderes){
         // require(checkSongExists(_sid));
         _id=_sid;
         _name=songs[_sid].name;
         _owner = songs[_sid].owner;
-        _url=songs[_sid].url;
+        _hash=songs[_sid].hash;
         _price=songs[_sid].price;
         _licenseHolderes = songs[_sid].licenseHoldersList;
+    }
+    function getSong(uint _sid,uint _uid) public view returns(string memory _name,string memory _hash) {
+      // require(checkUserExists(_uid));
+      // require(checkSongExists(_sid));
+      // require(checkPurchased(_uid, _sid));
+      _name = songs[_sid].name;
+      _hash = songs[_sid].hash;
     }
 }

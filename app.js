@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fileUpload = require("express-fileupload");
+fs = require('fs');
 
 //import web3 library
 var Web3 = require('web3');
@@ -12,6 +14,9 @@ var MyContractJSON  = require(path.join(__dirname, 'build/contracts/copyright.js
 
 //Establish connection with local geth private chain
 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+ipfsAPI = require('ipfs-api');
+ipfs = ipfsAPI('ipfs.infura.io','5001',{protocol: 'https'});
+
 
 // get contract address, from network id 5777 (here 5777 is the network id of geth private chain)
 contractAddress = MyContractJSON.networks['4002'].address;
@@ -28,6 +33,7 @@ var getUserRouter = require('./routes/getUser');
 var setUserRouter = require('./routes/setUser');
 var publishRouter = require('./routes/publish');
 var buyLicenseRouter = require('./routes/buyLicense');
+var getSongRouter =require('./routes/getSong');
 var app = express();
 
 userAddress="";
@@ -41,18 +47,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 app.use('/', indexRouter);
 app.use('/getUser',getUserRouter);
 app.use('/setUser', setUserRouter);
 app.use('/publish', publishRouter);
 app.use('/buyLicense', buyLicenseRouter);
-
+app.use('/getSong', getSongRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(fileUpload());
 
 // error handler
 app.use(function(err, req, res, next) {
