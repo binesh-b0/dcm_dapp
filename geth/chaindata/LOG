@@ -52,3 +52,5 @@
 14:25:01.197856 table@compaction committed F-1 S-203B Ke·0 D·42 T·103.972945ms
 14:25:01.198183 table@remove removed @9
 14:25:01.198374 table@remove removed @8
+16:49:11.759177 db@close closing
+16:49:11.759292 db@close done T·112.417µs
