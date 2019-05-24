@@ -66,11 +66,12 @@ contract copyright{
         users[_uid].publishedSongs.push(_id);
         users[_uid].publishedCount=users[_uid].publishedSongs.length;
     }
-    function buyLicence(uint buyerid,uint songid) public payable{
+    function buyLicense(uint buyerid,uint songid) public payable{
         // users[buyerid].addr.send(msg.value);
         require(msg.value>songs[songid].price,"value less than price");
         require(checkUserExists(buyerid),"user doesn not exist");
         require(checkSongExists(songid),"song does not exist");
+        require(!checkPurchased(buyerid,songid));
         users[buyerid].purchasedSongs.push(songid);
         users[buyerid].purchasedCount=users[buyerid].purchasedSongs.length;
         songs[songid].licenseHoldersList.push(buyerid);
