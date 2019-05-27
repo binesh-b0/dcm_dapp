@@ -26,7 +26,7 @@ console.log(contractAddress);
 
 const abi = MyContractJSON.abi;
 
-SMS = new web3.eth.Contract(abi, contractAddress);
+CR = new web3.eth.Contract(abi, contractAddress);
 
 var indexRouter = require('./routes/index');
 var getUserRouter = require('./routes/getUser');

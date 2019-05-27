@@ -110,8 +110,9 @@ describe('copyright :', () => {
       assert.equal(song[0],"500");
       assert.equal(song[1],"song1");
       assert.equal(song[2],userAddress);
-      assert.equal(song[3],"hash1");
-      assert.equal(song[4],"500000000000000");
+      assert.equal(song[3],"1");
+      assert.equal(song[4],"hash1");
+      assert.equal(song[5],"500000000000000");
     });
     it('get song',async()=>{
       await copyright.methods.registerUser("1","user",userAddress).send({ from: userAddress, gas: '4600000' });

@@ -30,6 +30,15 @@
       <input type="text" name="sid" placeholder="sid">
       <input type="submit" name="submit" value="download">
     </form>
-
+    <table>
+      <tr>
+        <th>sid</th><th>name</th><th>price</th><th>owner</th>
+      </tr>
+      <% songs.forEach(function(el,index){ %>
+      <tr>
+        <td><%=el.id %></td><td><%=el.name %></td><td><%=el.price %></td><td><%=el.uid %></td>
+      </tr>
+      <% })%>
+    </table>
   </body>
 </html>

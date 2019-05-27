@@ -1,5 +1,8 @@
 pragma solidity ^0.5.0;
 contract copyright{
+    uint public sCount=0;
+    uint public uCount=0;
+    uint[] public songIds;
     struct song{
         uint id;
         uint ownerid;
@@ -33,6 +36,7 @@ contract copyright{
         users[_id].addr = _addr;
          users[_id].purchasedCount = 0;
          users[_id].publishedCount = 0;
+         uCount=uCount+1;
     }
     function getUser(uint __id) public view returns(uint _id,address payable _addr,string memory _name,uint _purchasedCount,uint _publishedCount,uint[] memory _purchasedSongs,uint[] memory _publishedSongs){
         require(checkUserExists(__id),"user does not exist");
@@ -65,6 +69,8 @@ contract copyright{
         songs[_id].price=_price;
         users[_uid].publishedSongs.push(_id);
         users[_uid].publishedCount=users[_uid].publishedSongs.length;
+        sCount=sCount+1;
+        songIds.push(_id);
     }
     function buyLicense(uint buyerid,uint songid) public payable{
         // users[buyerid].addr.send(msg.value);
@@ -82,12 +88,13 @@ contract copyright{
         return (songs[_sid].licenseHolders[_uid] ||songs[_sid].ownerid==_uid);
     }
 
-    function songInfo(uint _sid) public view returns(uint _id,string memory _name,address payable _owner,string memory _hash,uint _price,uint[] memory _licenseHolderes){
+    function songInfo(uint _sid) public view returns(uint _id,string memory _name,address payable _owner,uint _oid,string memory _hash,uint _price,uint[] memory _licenseHolderes){
         require(checkSongExists(_sid),"song doesnot exist");
         _id=_sid;
         _name=songs[_sid].name;
         _owner = songs[_sid].owner;
         _hash=songs[_sid].hash;
+        _oid=songs[_sid].ownerid;
         _price=songs[_sid].price;
         _licenseHolderes = songs[_sid].licenseHoldersList;
     }
@@ -98,4 +105,7 @@ contract copyright{
       _name = songs[_sid].name;
       _hash = songs[_sid].hash;
     }
+    function getSongIds() public view returns(uint[] memory _songIds){
+       return songIds;
+   }
 }

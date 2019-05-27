@@ -4,7 +4,7 @@ var router = express.Router();
 router.post('/', function (req, res, next) {
     data = req.body;
     console.log(data);
-    SMS.methods.registerUser(data.uid, data.name,data.address )
+    CR.methods.registerUser(data.uid, data.name,data.address )
         .send({ from: data.address, gas : 6000000 });
     res.send("user Registered !")
 });
