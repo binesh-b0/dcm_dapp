@@ -94,3 +94,38 @@
 12:04:25.399855 version@stat F·[3 1] S·672B[492B 180B] Sc·[0.75 0.00]
 12:04:25.499483 db@janitor F·6 G·0
 12:04:25.499519 db@open done T·145.536166ms
+15:02:38.948606 db@close closing
+15:02:38.948656 db@close done T·49.616µs
+=============== May 27, 2019 (IST) ===============
+15:35:34.023007 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:35:34.023144 version@stat F·[3 1] S·672B[492B 180B] Sc·[0.75 0.00]
+15:35:34.023154 db@open opening
+15:35:34.023204 journal@recovery F·1
+15:35:34.024511 journal@recovery recovering @22
+15:35:34.093109 memdb@flush created L0@24 N·1 S·164B "n:\xcb..seq,v16":"n:\xcb..seq,v16"
+15:35:34.094459 version@stat F·[4 1] S·836B[656B 180B] Sc·[1.00 0.00]
+15:35:34.271073 db@janitor F·7 G·0
+15:35:34.271108 db@open done T·247.946885ms
+15:35:34.271148 table@compaction L0·4 -> L1·1 S·836B Q·17
+15:35:34.313191 table@build created L1@27 N·2 S·180B "n:\xcb..seq,v16":"version,v1"
+15:35:34.313245 version@stat F·[0 1] S·180B[0B 180B] Sc·[0.00 0.00]
+15:35:34.355022 table@compaction committed F-4 S-656B Ke·0 D·4 T·83.836463ms
+15:35:34.355097 table@remove removed @24
+15:35:34.355134 table@remove removed @21
+15:35:34.355157 table@remove removed @18
+15:35:34.355177 table@remove removed @15
+15:35:34.355197 table@remove removed @14
+16:21:55.353781 db@close closing
+16:21:55.353812 db@close done T·31.073µs
+=============== May 28, 2019 (IST) ===============
+14:52:46.811291 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:52:46.811410 version@stat F·[0 1] S·180B[0B 180B] Sc·[0.00 0.00]
+14:52:46.811418 db@open opening
+14:52:46.811455 journal@recovery F·1
+14:52:46.812718 journal@recovery recovering @25
+14:52:46.874019 memdb@flush created L0@28 N·1 S·164B "n:\xcb..seq,v18":"n:\xcb..seq,v18"
+14:52:46.875344 version@stat F·[1 1] S·344B[164B 180B] Sc·[0.25 0.00]
+14:52:47.042249 db@janitor F·4 G·0
+14:52:47.042290 db@open done T·230.852093ms
+17:05:57.054486 db@close closing
+17:05:57.054520 db@close done T·33.859µs
