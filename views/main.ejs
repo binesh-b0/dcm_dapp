@@ -2,9 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <title>dcm</title>
+
   </head>
   <body>
+
+<header>
+<nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Musik</a>
+    <button class="btn btn-outline-success"><%=val._name%></button>
+</nav>
+</header>
+
+
     name:<%=val._name %><br>
     id:<%= val._id%><br>
     addr:<%=val._addr %><br>
@@ -14,7 +27,6 @@
     pb:<%=val._publishedSongs %><br>
     <br>
     <form action="/publish" method="Post" enctype="multipart/form-data">
-      <input type="text" name="uid" placeholder="uid">
       <input type="text" name="sid" placeholder="sid">
       <input type="text" name="name" placeholder="name">
       <input type="number" name="price" placeholder="price">
@@ -23,20 +35,38 @@
     </form>
     <form class="" action="/buyLicense" method="post">
       <input type="text" name="sid" placeholder="sid">
-      <input type="number" name="amount" placeholder="amount">
       <input type="submit" name="submit" value="buy">
     </form>
     <form class="" action="/getSong" method="post">
       <input type="text" name="sid" placeholder="sid">
       <input type="submit" name="submit" value="download">
     </form>
+    <h3>available</h3>
     <table>
       <tr>
-        <th>sid</th><th>name</th><th>price</th><th>owner</th>
+        <th>sid</th><th>name</th><th>owner</th>
       </tr>
       <% songs.forEach(function(el,index){ %>
       <tr>
         <td><%=el.id %></td><td><%=el.name %></td><td><%=el.price %></td><td><%=el.uid %></td>
+        <td>
+          <audio controls controlsList="nodownload" preload="none" style=" width:300px;">
+          <source src="<%="https://ipfs.io/ipfs/" +el.hash%>" type="audio/mpeg">
+          Your browser does not support the audio element.
+          </audio><br />
+        </td>
+      </tr>
+      <% })%>
+    </table>
+    <h3>purchase</h3>
+    <table>
+      <tr>
+        <th>sid</th><th>name</th><th>price</th><th>owner</th>
+      </tr>
+      <% songs2.forEach(function(el,index){ %>
+      <tr>
+        <td><%=el.id %></td><td><%=el.name %></td><td><%=el.price %></td><td><%=el.uid %></td>
+
       </tr>
       <% })%>
     </table>

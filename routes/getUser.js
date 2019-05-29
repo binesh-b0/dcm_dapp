@@ -6,35 +6,45 @@ router.post('/', function (req, res, next) {
     songs =[];
     songs2=[];
     available = false;
+    userId = data.uid;
+    userAddress = data.address;
     CR.methods.getSongIds.call().then(function(songIds){
-      console.log("songIds",songIds);
       if(songIds.length==0){
         CR.methods.getUser(data.uid)
             .call({ from: data.address }).then((val) => {
                 userAddress=data.address;
                 userId=data.uid;
-                res.render("main", {val : val,songs:songs,available_songs:songs2});
+                res.render("main", {val : val,songs:songs,songs2:songs});
+
             })
       }
       for (var i = 0; i <= songIds.length; i++){
+        console.log(i,songIds,songs,songs2);
+        if(i>=songIds.length){
+          CR.methods.getUser(data.uid)
+              .call({ from: data.address }).then((val) => {
+                  userAddress=data.address;
+                  userId=data.uid;
+
+                  res.render("main", {val : val,songs:songs,songs2:songs2});
+              })
+        }
+        console.log("dd",songIds[i]);
         CR.methods.songInfo(songIds[i]).call().then(function(song){
           available=false;
-          CR.methods.checkPurchased(song[3],song[0]).call({from:userAddress}).then(function(available){
+    
+          CR.methods.checkPurchased(userId,songIds[i]).call({from:userAddress}).then(function(available){
+            console.log(song[3],userId,available,"sdf");
             if (available) {
-          songs.push({id:song[0],name:song[1],price:song[5],uid:song[3]});
-        }
-        else {
-          songs2.push({id:song[0],name:song[1],price:song[5],uid:song[3]});
+              console.log(available);
+          songs.push({id:song[0],name:song[1],price:song[5],uid:song[3],hash:song[4]});
+            }
+            else {
+              console.log(available);
+              songs2.push({id:song[0],name:song[1],price:song[5],uid:song[3]});
+            }
+            console.log(i,songIds.length);
 
-        }
-          if(songs.length==songIds.length){
-            CR.methods.getUser(data.uid)
-                .call({ from: data.address }).then((val) => {
-                    userAddress=data.address;
-                    userId=data.uid;
-                    res.render("main", {val : val,songs:songs});
-                })
-          }
         });
         })
       }

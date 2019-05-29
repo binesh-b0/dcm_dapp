@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
      ipfsHash = file[0].hash;
      console.log("ipfs",ipfsHash);
 
-     CR.methods.registerCopyright(data.sid,data.uid,data.name,userAddress,ipfsHash,data.price )
+     CR.methods.registerCopyright(data.sid,userId,data.name,userAddress,ipfsHash,data.price )
          .send({ from: userAddress , gas : 6000000 });
      res.send("song published !")
 
