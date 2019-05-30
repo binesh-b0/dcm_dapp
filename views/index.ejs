@@ -2,8 +2,13 @@
 <html>
   <head>
     <title>DCM</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <title>dcm</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
     <style media="screen">
     form {
 margin:0 auto;
@@ -20,12 +25,7 @@ padding:10px
 label {
 cursor:pointer
 }
-input{
-  width: 312px;
-  -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 #form-switch {
 display:none
 }
@@ -41,21 +41,31 @@ display:none
     </style>
   </head>
   <body>
-    <div align="center">
+    <header>
+    <nav class="navbar navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">Musik</a>
+    </nav>
+    </header>
+    <div class="container" align="center">
+      <div class="shadow-lg p-3 mb-2 bg-white rounded text-center align-self-center" style="width:40%">
+
     <input type='checkbox' id='form-switch'>
     <form id='login-form' action="/getUser" method='post'>
-      <input name="uid" type="text" placeholder="uid" required>
-      <input name="address" type="text" placeholder="address" required>
+      <input class="rounded" name="uid" type="text" placeholder="uid" required>
+      <input class="rounded" name="address" type="text" placeholder="address" required>
       <input type='submit' value="login"/>
-      <label for='form-switch'><span>register</span></label>
+      <label for='form-switch'><h2 class="text-primary">register</h2></label>
     </form>
     <form id='register-form' action="/setUser" method='post'>
-      <input name="name" type="text" placeholder="Username" required>
-      <input name="uid" type="text" placeholder="uid" required>
-      <input name="address" type="text" placeholder="address" required>
+      <input class="rounded" name="name" type="text" placeholder="Username" required>
+      <input class="rounded" name="uid" type="text" placeholder="uid" required>
+      <input class="rounded" name="address" type="text" placeholder="address" required>
       <input type='submit' value="submit"></input>
-      <label for='form-switch'>sign i`n</label>
+      <label for='form-switch'><h2 class="text-primary">sign in</h3</label>
     </form>
   </div>
+  <h6 class="text-muted">login to continue</h6>
+  </div>
+
   </body>
 </html>
