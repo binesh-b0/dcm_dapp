@@ -108,4 +108,7 @@ contract copyright{
     function getSongIds() public view returns(uint[] memory _songIds){
        return songIds;
    }
+    function checkHashExists(string memory _name) public view returns (bool) {
+        return unique[_name];
+    }
 }

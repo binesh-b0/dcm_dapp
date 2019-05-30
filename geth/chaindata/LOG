@@ -212,3 +212,13 @@
 11:50:00.150895 table@compaction committed F-1 S-29B Ke·0 D·15 T·218.505064ms
 11:50:00.151134 table@remove removed @46
 11:50:00.151211 table@remove removed @45
+=============== May 30, 2019 (IST) ===============
+19:54:34.711814 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:54:34.711918 CURRENT: missing target file: MANIFEST-000048
+19:54:34.711941 CURRENT.bak: missing target file: MANIFEST-000044
+19:54:34.896107 db@open opening
+19:54:34.901617 version@stat F·[] S·0B[] Sc·[]
+19:54:34.985628 db@janitor F·2 G·0
+19:54:34.985728 db@open done T·89.555414ms
+20:11:50.299426 db@close closing
+20:11:50.299639 db@close done T·206.139µs

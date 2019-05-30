@@ -181,3 +181,13 @@
 11:50:00.005252 version@stat F·[1 1] S·344B[164B 180B] Sc·[0.25 0.00]
 11:50:00.168027 db@janitor F·4 G·0
 11:50:00.168064 db@open done T·236.937949ms
+=============== May 30, 2019 (IST) ===============
+19:54:35.020535 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+19:54:35.020682 CURRENT: missing target file: MANIFEST-000043
+19:54:35.020749 CURRENT.bak: missing target file: MANIFEST-000039
+19:54:35.142006 db@open opening
+19:54:35.144218 version@stat F·[] S·0B[] Sc·[]
+19:54:35.353450 db@janitor F·2 G·0
+19:54:35.353547 db@open done T·211.475183ms
+20:11:50.300053 db@close closing
+20:11:50.300310 db@close done T·252.205µs
