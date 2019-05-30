@@ -26,31 +26,101 @@
 </nav>
 </header>
 <div class="container">
-    addr:<%=val._addr %><br>
-    prc:<%=val._purchasedCount %><br>
-    pbc:<%=val._publishedCount %><br>
-    pr:<%=val._purchasedSongs%><br>
-    pb:<%=val._publishedSongs %><br>
-    <br>
-    <form action="/publish" method="Post" enctype="multipart/form-data">
-      <input type="text" name="sid" placeholder="sid">
-      <input type="text" name="name" placeholder="name">
-      <input type="number" name="price" placeholder="price">
-      <input type="file" name="song" />
-      <input type="submit" value="publish">
-    </form>
-    <form class="" action="/buyLicense" method="post">
-      <input type="text" name="sid" placeholder="sid">
-      <input type="submit" name="submit" value="buy">
-    </form>
-    <form class="" action="/getSong" method="post">
+  <div class="shadow-lg p-3 mb-2 bg-white rounded text-center">
+    <p class="text-primary">user addr:<%=val._addr %></p>
+  </div>
+  <div class="shadow-lg p-3 mb-2 bg-white rounded text-center">
+    <p class="text-secondary">purchased count : <%=val._purchasedCount %></p>
+    <p class="text-secondary">published count : <%=val._publishedCount %></p>
+  </div>
+  <div class="shadow-lg p-3 mb-2 bg-white rounded text-center">
+    <p class="text-secondary">pr:<%=val._purchasedSongs%></p>
+    <p class="text-secondary">pb:<%=val._publishedSongs %></p>
+  </div>
+
+
+  <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">publish song</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3 text-center">
+          <div class="md-form mb-5">
+            <form action="/publish" method="Post" enctype="multipart/form-data">
+              <div class="md-form mb-5"><label data-error="wrong" data-success="right" for="sid">Song Id : </label>
+                <input type="text" name="sid" placeholder="sid" required></div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="name">name : </label>
+                <input type="text" name="name" placeholder="name" required></div>
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="price">price : </label>
+                <input type="number" name="price" placeholder="price" required></div>
+              <div class="md-form mb-5">
+                <input type="file" name="song" /></div>
+              <div class="modal-footer d-flex justify-content-center">
+                <input type="submit" value="publish">
+              </div>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="modalLicenceForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">buy song</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <form class="" action="/buyLicense" method="post">
+              <div class="md-form mb-5">
+                <label data-error="wrong" data-success="right" for="sid">song id : </label>
+              <input type="text" name="sid" placeholder="sid" required>
+            </div>
+              <div class="modal-footer d-flex justify-content-center">
+                <input type="submit" name="submit" value="buy">
+              </div>
+            </form>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="row text-center mt-5">
+    <div class="col">
+    <button class="btn btn-lg btn-success btn-rounded mb-4" data-toggle="modal" data-target="#modalSubscriptionForm">
+      publish song</button>
+    </div>
+    <div class="col">
+    <button class="btn btn-lg btn-danger btn-rounded mb-4" data-toggle="modal" data-target="#modalLicenceForm">
+    buy licence</button>
+    </div>
+    <div class="col">
+    <button class="btn btn-lg btn-disabled btn-rounded mb-4" data-toggle="modal" data-target="">
+      download song</button>
+    </div>
+</div>
+
+
+    <!-- <form class="" action="/getSong" method="post">
       <input type="text" name="sid" placeholder="sid">
       <input type="submit" name="submit" value="download">
-    </form>
-    <h3>available</h3>
-    <table>
+    </form> -->
+    <h3 class="text-primary ml-4">available</h3>
+    <table class="table">
       <tr>
-        <th>sid</th><th>name</th><th>owner</th>
+        <th>sid</th><th>name</th><th>price</th><th>owner</th><th>play</th>
       </tr>
       <% s.forEach(function(el,index){ %>
       <tr>
