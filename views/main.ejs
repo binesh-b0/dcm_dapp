@@ -6,6 +6,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <title>dcm</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
   </head>
   <body>
@@ -13,13 +15,17 @@
 <header>
 <nav class="navbar navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Musik</a>
-    <button class="btn btn-outline-success"><%=val._name%></button>
+    <div class="btn-group text-center mr-4">
+      <button class="btn btn-primary dropdown-toggle"  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <%=val._name%>
+      </button>
+      <div class="dropdown-menu text-center">
+      <p>id : <%= val._id%></p>
+      </div>
+    </div>
 </nav>
 </header>
-
-
-    name:<%=val._name %><br>
-    id:<%= val._id%><br>
+<div class="container">
     addr:<%=val._addr %><br>
     prc:<%=val._purchasedCount %><br>
     pbc:<%=val._publishedCount %><br>
@@ -46,7 +52,7 @@
       <tr>
         <th>sid</th><th>name</th><th>owner</th>
       </tr>
-      <% songs.forEach(function(el,index){ %>
+      <% s.forEach(function(el,index){ %>
       <tr>
         <td><%=el.id %></td><td><%=el.name %></td><td><%=el.price %></td><td><%=el.uid %></td>
         <td>
@@ -58,17 +64,10 @@
       </tr>
       <% })%>
     </table>
-    <h3>purchase</h3>
-    <table>
-      <tr>
-        <th>sid</th><th>name</th><th>price</th><th>owner</th>
-      </tr>
-      <% songs2.forEach(function(el,index){ %>
-      <tr>
-        <td><%=el.id %></td><td><%=el.name %></td><td><%=el.price %></td><td><%=el.uid %></td>
+  </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
-      </tr>
-      <% })%>
-    </table>
   </body>
 </html>

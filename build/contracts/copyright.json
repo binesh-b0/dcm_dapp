@@ -16241,12 +16241,18 @@
     "4002": {
       "events": {},
       "links": {},
-      "address": "0x55016D29e43961D04a03283f9d3ebB6F86048141",
-      "transactionHash": "0x59b48bb71e41902163e917753e0fbcc53c2923708c922134d1c092cc6d41f27d"
+      "address": "0x541ed1441B361025ba94716E214FF3883d7B1B3e",
+      "transactionHash": "0xe34ba45f2bf6a77004693cc468405d8c46de054b26c8f03002c3eb405e9e9bf7"
+    },
+    "1559196147646": {
+      "events": {},
+      "links": {},
+      "address": "0x8F792560D8F270193194E435bE00337d366A932C",
+      "transactionHash": "0x7febf4aca5f4b22d2f53e2af7cfc78ee69072df4016df7e99fc0a27f1a0b6d13"
     }
   },
   "schemaVersion": "3.0.6",
-  "updatedAt": "2019-05-29T10:01:08.459Z",
+  "updatedAt": "2019-05-30T06:09:25.629Z",
   "devdoc": {
     "methods": {}
   },

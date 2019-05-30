@@ -176,3 +176,39 @@
 09:53:09.636357 version@stat F·[1 1] S·314KiB[448B 313KiB] Sc·[0.25 0.00]
 09:53:09.732886 db@janitor F·4 G·0
 09:53:09.732908 db@open done T·137.734832ms
+=============== May 30, 2019 (IST) ===============
+11:30:32.041111 db@close closing
+11:30:32.041183 db@close done T·70.85µs
+=============== May 30, 2019 (IST) ===============
+11:30:34.049978 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:30:34.050112 version@stat F·[1 1] S·314KiB[448B 313KiB] Sc·[0.25 0.00]
+11:30:34.050122 db@open opening
+11:30:34.050163 journal@recovery F·1
+11:30:34.052171 journal@recovery recovering @40
+11:30:34.096236 memdb@flush created L0@42 N·220 S·27KiB "\x04\xb0\b..\x81\xad\x11,v3095":"\xff\x11\xc0..7=\x91,v3110"
+11:30:34.111215 version@stat F·[2 1] S·341KiB[28KiB 313KiB] Sc·[0.50 0.00]
+11:30:34.213968 db@janitor F·5 G·0
+11:30:34.214004 db@open done T·163.86553ms
+11:30:34.254693 table@compaction L0·2 -> L1·1 S·341KiB Q·3124
+11:30:34.362913 table@build created L1@45 N·1981 S·335KiB "\x00M\t..x\xa8\x99,v2487":"\xff\xfb\xac..\xb54\x15,v625"
+11:30:34.362965 version@stat F·[0 1] S·335KiB[0B 335KiB] Sc·[0.00 0.00]
+11:30:34.473985 table@compaction committed F-2 S-6KiB Ke·0 D·82 T·219.241161ms
+11:30:34.474222 table@remove removed @42
+11:30:34.474320 table@remove removed @39
+11:30:34.474903 table@remove removed @38
+=============== May 30, 2019 (IST) ===============
+11:49:59.710289 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:49:59.710456 version@stat F·[0 1] S·335KiB[0B 335KiB] Sc·[0.00 0.00]
+11:49:59.710481 db@open opening
+11:49:59.710536 journal@recovery F·1
+11:49:59.712408 journal@recovery recovering @43
+11:49:59.773263 memdb@flush created L0@46 N·43 S·6KiB "Dat..ion,v3123":"r\x00\x00..\x15g\xee,v3159"
+11:49:59.789457 version@stat F·[1 1] S·341KiB[6KiB 335KiB] Sc·[0.25 0.00]
+11:49:59.890952 db@janitor F·4 G·0
+11:49:59.890985 db@open done T·180.491623ms
+11:49:59.932325 table@compaction L0·1 -> L1·1 S·341KiB Q·3168
+11:50:00.041123 table@build created L1@49 N·2009 S·341KiB "\x00M\t..x\xa8\x99,v2487":"\xff\xfb\xac..\xb54\x15,v625"
+11:50:00.041190 version@stat F·[0 1] S·341KiB[0B 341KiB] Sc·[0.00 0.00]
+11:50:00.150895 table@compaction committed F-1 S-29B Ke·0 D·15 T·218.505064ms
+11:50:00.151134 table@remove removed @46
+11:50:00.151211 table@remove removed @45
