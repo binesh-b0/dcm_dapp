@@ -19,12 +19,12 @@ router.post('/', function (req, res, next) {
                       .call({ from:userAddress }).then((val) => {
                           res.download(path.join(__dirname,'../')+data.sid+".mp3",data.sid+".mp3");
                           // res.render("main", {val : val});
-                      })
+                      }).catch((error)=>res.send("error"));
               });
 
           })
         });
-      })
+      }).catch((error)=>res.send("error"));
 });
 
 module.exports = router;

@@ -8,7 +8,7 @@ router.post('/', function (req, res, next) {
       price = parseInt(song[5])+6000000;
       console.log(song,price);
    await CR.methods.buyLicense(userId,data.sid)
-        .send({ from: userAddress,value:price, gas : 6000000 });
+        .send({ from: userAddress,value:price, gas : 6000000 }).catch((error)=>res.send("error"));
     res.send("license purchased !")
   });
 });

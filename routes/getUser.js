@@ -24,7 +24,7 @@ router.post('/',function (req, res, next) {
     }
     console.log("erebde",songs);
       res.render("main", {val : val,s:songs});
-  })
+  }).catch((error)=>res.send("error"));
 })
 
 module.exports = router;
